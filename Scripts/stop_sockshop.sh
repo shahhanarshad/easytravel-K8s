@@ -1,0 +1,27 @@
+kubectl -n dev scale --replicas=0 deployment/carts
+kubectl -n dev scale --replicas=0 deployment/carts-db
+kubectl -n dev scale --replicas=0 deployment/catalogue
+kubectl -n dev scale --replicas=0 deployment/catalogue-db
+kubectl -n dev scale --replicas=0 deployment/front-end
+kubectl -n dev scale --replicas=0 deployment/orders
+kubectl -n dev scale --replicas=0 deployment/orders-db
+kubectl -n dev scale --replicas=0 deployment/payment
+kubectl -n dev scale --replicas=0 deployment/queue-master
+kubectl -n dev scale --replicas=0 deployment/rabbitmq
+kubectl -n dev scale --replicas=0 deployment/shipping
+kubectl -n dev scale --replicas=0 deployment/user
+kubectl -n dev scale --replicas=0 deployment/user-db
+
+kubectl -n production scale --replicas=0 deployment/carts
+kubectl -n production scale --replicas=0 deployment/carts-db
+kubectl -n production scale --replicas=0 deployment/catalogue
+kubectl -n production scale --replicas=0 deployment/catalogue-db
+kubectl -n production scale --replicas=0 deployment/front-end
+kubectl -n production scale --replicas=0 deployment/orders
+kubectl -n production scale --replicas=0 deployment/orders-db
+kubectl -n production scale --replicas=0 deployment/payment
+kubectl -n production scale --replicas=0 deployment/queue-master
+kubectl -n production scale --replicas=0 deployment/rabbitmq
+kubectl -n production scale --replicas=0 deployment/shipping
+kubectl -n production scale --replicas=0 deployment/user
+kubectl -n production scale --replicas=0 deployment/user-db
