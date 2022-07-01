@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: easytravel
+    tier: loadgen
+  name: loadgen
+  namespace: easytravel
+spec:
+  selector:
+    matchLabels:
+      app: easytravel
+      tier: loadgen
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: easytravel
+        tier: loadgen
+        app.kubernetes.io/name: easytravel-loadgen
+        app.kubernetes.io/instance: easytravel-loadgen-1.0.0
+        app.kubernetes.io/version: "1.0.0"
+        app.kubernetes.io/component: loadgen
+        app.kubernetes.io/part-of: easytravel
+        app.kubernetes.io/managed-by: kubernetes
+        app.kubernetes.io/created-by: shahhan
+      annotations:
+        contact: "demo@dynatrace.com"
+        priority: "low"
+        tier: loadgen
+        app: easytravel
+    spec:
+      containers:
+      - image: dynatrace/easytravel-loadgen:2.0.0.3218
+        name: loadgen
+        envFrom:
+        - configMapRef:
+            name: easytravel-config
+        resources:
+          limits:
+            cpu: 200m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
